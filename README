@@ -120,7 +120,11 @@ docker ps -a
 
 
 docker run -it ubuntu /bin/bash
+# hostname 
+# exit 
 docker run --hostname=front-end-app  -it ubuntu /bin/bash
+# hostname 
+# exit 
 docker ps 
 docker run --name=myapp -d nginx 
 docker ps 
