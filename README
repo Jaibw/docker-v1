@@ -75,3 +75,26 @@ docker ps -l
 docker ps -a
 docker ps -q
 docker ps -qa
+
+
+docker run --name myapp -d nginx 
+docker ps 
+docker stop myapp 
+docker ps -a
+docker start myapp
+docker ps 
+docker kill myapp
+docker ps -a
+docker restart myapp
+docker ps 
+docker attach myapp    # ctrl + c to exit 
+docker ps -a
+docker start myapp 
+docker ps 
+docker logs myapp
+docker exec myapp ls -l /proc
+docker exec -it  myapp /bin/bash
+# apt update && apt install vim -y 
+# exit 
+docker ps 
+docker exec myapp vim --version
