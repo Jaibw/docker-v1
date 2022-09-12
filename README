@@ -44,3 +44,14 @@ Ctrl + C to terminate your container
 # 2nd tab 
 ps aux | grep nginx 
 
+
+docker run ubuntu ls /
+docker run ubuntu ps aux 
+docker run ubuntu uname -a
+docker run centos uname -a
+docker run -it ubuntu /bin/bash
+# vim --version 
+# apt update 
+# apt install vim -y 
+# vim --version 
+# exit 
