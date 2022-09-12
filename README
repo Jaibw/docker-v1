@@ -22,3 +22,13 @@ docker images
 docker pull nginx:1.9.5
 docker images
 # explore more images on hub.docker.com
+
+
+mkdir ~/hello-python
+cd ~/hello-python
+wget https://raw.githubusercontent.com/Jaibw/docker-v1/master/hello-python/Dockerfile
+wget https://raw.githubusercontent.com/Jaibw/docker-v1/master/hello-python/main.py
+ls -l
+docker build -t hello-python:v1 .
+docker images 
+docker run hello-python:v1 
