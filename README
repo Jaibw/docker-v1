@@ -134,3 +134,28 @@ docker run -m 500M --memory-reservation 200M --name=myapp02 -d nginx
 docker run --cpus 0.02 --name=myapp03 -d nginx 
 docker ps 
 docker stats
+
+docker volume 
+docker volume create mysql-db
+docker volume ls 
+docker volume inspect mysql-db 
+sudo ls /var/lib/docker/volumes/mysql-db/_data
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=password -v  mysql-db:/var/lib/mysql -d mysql 
+sudo ls /var/lib/docker/volumes/mysql-db/_data
+docker exec -it mysql /bin/bash
+# mysql -u root -p
+# Enter password: password
+# mysql > create database demo;
+# mysql > show databases;
+# mysql > exit 
+# exit 
+docker stop mysql 
+docker rm mysql 
+sudo ls /var/lib/docker/volumes/mysql-db/_data
+docker run --name mysql1 -e MYSQL_ROOT_PASSWORD=password -v  mysql-db:/var/lib/mysql -d mysql
+docker exec -it mysql1 /bin/bash
+# mysql -u root -p
+# Enter password: password
+# mysql > show databases;
+# mysql > exit 
+# exit 
