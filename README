@@ -171,3 +171,12 @@ curl 172.#.#.#
 
 docker run --name website001 -p 8081:80 -v /home/ubuntu/FrozenYogurtShop:/usr/share/nginx/html -d nginx
 Open Chrome http://PublicIP:8081 
+
+
+cd ~/hello-python
+docker login 
+docker build -t DOCKER-USERNAME/hello-python .     ## eg. docker build -t jaibw/hello-python .
+docker push DOCKER-USERNAME/hello-python           ## eg. docker push jaibw/hello-python 
+Open DockerHub and search for DOCKER-USERNAME/hello-python  
+
+
