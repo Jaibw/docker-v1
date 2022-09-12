@@ -179,4 +179,6 @@ docker build -t DOCKER-USERNAME/hello-python .     ## eg. docker build -t jaibw/
 docker push DOCKER-USERNAME/hello-python           ## eg. docker push jaibw/hello-python 
 Open DockerHub and search for DOCKER-USERNAME/hello-python  
 
-
+docker search DOCKER-USERNAME
+docker search rabbitmq
+docker rmi DOCKER-USERNAME/hello-python
