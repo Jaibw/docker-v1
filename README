@@ -6,3 +6,4 @@ sh install-docker-ubuntu-20.04.sh
 docker --version 
 
 docker run hello-world 
+docker images
