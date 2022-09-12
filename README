@@ -55,3 +55,9 @@ docker run -it ubuntu /bin/bash
 # apt install vim -y 
 # vim --version 
 # exit 
+
+sudo ls /var/lib/docker
+sudo ls /var/lib/docker/image
+sudo cat /var/lib/docker/image/overlay2/repositories.json
+docker images
+sudo ls /var/lib/docker/image/overlay2/layerdb/sha256
