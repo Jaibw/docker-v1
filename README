@@ -7,3 +7,7 @@ docker --version
 
 docker run hello-world 
 docker images
+
+docker version
+systemctl status docker    # press q to exit 
+which docker               
