@@ -117,3 +117,16 @@ docker system info
 docker system events    # ctrl + c to exit 
 docker system prune
 docker ps -a
+
+
+docker run -it ubuntu /bin/bash
+docker run --hostname=front-end-app  -it ubuntu /bin/bash
+docker ps 
+docker run --name=myapp -d nginx 
+docker ps 
+docker top myapp
+docker stats
+docker run -m 500M --memory-reservation 200M --name=myapp02 -d nginx 
+docker run --cpus 0.02 --name=myapp03 -d nginx 
+docker ps 
+docker stats
