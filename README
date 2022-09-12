@@ -11,3 +11,14 @@ docker images
 docker version
 systemctl status docker    # press q to exit 
 which docker               
+
+docker images
+docker pull nginx
+docker images
+docker pull redis
+docker pull ubuntu
+docker pull centos
+docker images
+docker pull nginx:1.9.5
+docker images
+# explore more images on hub.docker.com
