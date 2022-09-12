@@ -98,3 +98,22 @@ docker exec -it  myapp /bin/bash
 # exit 
 docker ps 
 docker exec myapp vim --version
+
+
+docker inspect myapp | less
+docker inspect myapp | grep -i ipaddress
+curl 172.#.#.#
+
+docker ps
+docker rm myapp
+docker stop myapp
+docker ps  -a
+docker rm myapp
+docker ps  -a | grep hello-world
+docker rm <container-id> <container-id>
+docker ps  -a | grep hello-world
+docker system df
+docker system info
+docker system events    # ctrl + c to exit 
+docker system prune
+docker ps -a
