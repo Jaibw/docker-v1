@@ -61,3 +61,17 @@ sudo ls /var/lib/docker/image
 sudo cat /var/lib/docker/image/overlay2/repositories.json
 docker images
 sudo ls /var/lib/docker/image/overlay2/layerdb/sha256
+
+
+docker image inspect hello-python:v1
+docker run jpetazzo/clock   # ctrl + c to exit 
+docker run nginx            # ctrl + c to exit   
+docker run -d jpetazzo/clock
+docker run -d nginx 
+docker ps 
+docker logs <container-id>
+docker ps 
+docker ps -l 
+docker ps -a
+docker ps -q
+docker ps -qa
