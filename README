@@ -4,3 +4,5 @@ wget https://raw.githubusercontent.com/Jaibw/docker-v1/master/install-docker-ubu
 sh install-docker-ubuntu-20.04.sh
 # refresh your chrome 
 docker --version 
+
+docker run hello-world 
