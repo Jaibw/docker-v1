@@ -159,3 +159,11 @@ docker exec -it mysql1 /bin/bash
 # mysql > show databases;
 # mysql > exit 
 # exit 
+
+cd ~
+git clone https://github.com/Jaibw/FrozenYogurtShop.git
+ls /home/ubuntu/FrozenYogurtShop
+docker run --name website001 -v /home/ubuntu/FrozenYogurtShop:/usr/share/nginx/html -d nginx
+docker ps 
+docker inspect website001 | grep -i ipaddress
+curl 172.#.#.#
