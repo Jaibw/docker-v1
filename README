@@ -32,3 +32,15 @@ ls -l
 docker build -t hello-python:v1 .
 docker images 
 docker run hello-python:v1 
+
+
+# open second terminal using duplicate tab in chrome 
+# 1st tab
+docker run nginx 
+# 2nd tab 
+ps aux | grep nginx 
+# 1st tab 
+Ctrl + C to terminate your container 
+# 2nd tab 
+ps aux | grep nginx 
+
