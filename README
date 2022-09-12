@@ -167,3 +167,7 @@ docker run --name website001 -v /home/ubuntu/FrozenYogurtShop:/usr/share/nginx/h
 docker ps 
 docker inspect website001 | grep -i ipaddress
 curl 172.#.#.#
+
+
+docker run --name website001 -p 8081:80 -v /home/ubuntu/FrozenYogurtShop:/usr/share/nginx/html -d nginx
+Open Chrome http://PublicIP:8081 
