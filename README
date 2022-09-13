@@ -182,3 +182,18 @@ Open DockerHub and search for DOCKER-USERNAME/hello-python
 docker search DOCKER-USERNAME
 docker search rabbitmq
 docker rmi DOCKER-USERNAME/hello-python
+
+docker ps
+docker stop `docker ps -q`
+docker ps 
+docker ps -qa
+docker rm `docker ps -qa`
+docker ps -a
+docker images 
+docker rmi python
+docker images
+docker system prune --all
+docker images 
+docker volume ls
+docker volume prune 
+
