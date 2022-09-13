@@ -237,3 +237,15 @@ docker run -it hello-java:v1 /bin/bash
 # java Hello
 # exit 
 cat Dockerfile 
+
+mkdir ~/corporate-image
+cd ~/corporate-image
+wget https://raw.githubusercontent.com/Jaibw/docker-v1/master/corporate-image/Dockerfile
+docker build -t base-ubuntu .
+docker run -it base-ubuntu
+# nano --version 
+# cd /data
+# echo 'demo' > file1.txt 
+# exit 
+docker volume ls 
+docker history base-ubuntu
