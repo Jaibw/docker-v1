@@ -264,3 +264,22 @@ docker exec -it mysql /bin/bash
 # mysql > exit 
 # exit 
 
+
+docker stop `docker ps -q`
+docker rm `docker ps -qa`
+mkdir ~/wordpress/db
+mkdir -p ~/wordpress/db
+mkdir -p ~/wordpress/app
+cd ~/wordpress/db
+wget https://raw.githubusercontent.com/Jaibw/docker-v1/master/mysql-db/Dockerfile
+docker build -t mysql-db .
+docker run -d --name mysql mysql-db 
+cd ~/wordpress/app
+wget https://raw.githubusercontent.com/Jaibw/docker-v1/master/wordpress/Dockerfile
+cat Dockerfile 
+docker inspect mysql | grep -i ipaddress
+sed -i 's/DATABASEIP/172.#.#.#/g' Dockerfile 
+cat Dockerfile
+docker build -t wp-app .
+docker run -d --name wordpress -p 8080:80 wp-app 
+Open chrome http://PublicIP:8080/
