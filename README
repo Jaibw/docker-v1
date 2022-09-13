@@ -249,3 +249,17 @@ docker run -it base-ubuntu
 # exit 
 docker volume ls 
 docker history base-ubuntu
+
+mkdir ~/mysql-db
+cd ~/mysql-db
+vim Dockerfile
+docker build -t mysql-db .
+docker images
+docker run -d --name mysql mysql-db 
+docker ps 
+docker exec -it mysql /bin/bash
+# mysql -u root -p 
+# Password:  --- type password 
+# mysql > exit 
+# exit 
+
