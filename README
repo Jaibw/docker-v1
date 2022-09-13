@@ -252,6 +252,7 @@ docker history base-ubuntu
 
 mkdir ~/mysql-db
 cd ~/mysql-db
+wget https://raw.githubusercontent.com/Jaibw/docker-v1/master/mysql-db/Dockerfile
 vim Dockerfile
 docker build -t mysql-db .
 docker images
