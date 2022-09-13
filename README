@@ -289,3 +289,13 @@ docker login jaibw.jfrog.io
 docker pull nginx 
 docker tag nginx jaibw.jfrog.io/devops-docker/nginx:YOURNAME
 docker push jaibw.jfrog.io/devops-docker/nginx:YOURNAME
+
+
+cd ~
+wget https://raw.githubusercontent.com/Jaibw/docker-v1/master/docker-compose/wordpress.yaml
+cat wordpress.yaml
+docker-compose help 
+docker-compose -f wordpress.yaml up 
+Access http://PublicIP:8081/
+Press Ctrl + c to exit from docker-compose up command 
+
