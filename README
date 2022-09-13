@@ -210,3 +210,15 @@ docker ps -a
 docker images
 docker commit web USERNAME/web-base:v1 
 docker images
+
+
+mkdir ~/custom-apache
+cd ~/custom-apache/
+wget https://raw.githubusercontent.com/Jaibw/docker-v1/master/custom-apache/Dockerfile
+cat Dockerfile 
+docker build -t webserver:v1 .
+docker images 
+docker run -d --name demo01 webserver:v1 
+docker inspect demo01 | grep -i ipaddress 
+curl 172.#.#.#
+docker stop demo01 
