@@ -317,3 +317,6 @@ http://PublicIP:8082/swagger-ui.html
 Acess DB Admin Utility: 
 Find DB details - https://raw.githubusercontent.com/Jaibw/docker-v1/master/docker-compose/ovs.yaml 
 http://PublicIP:8083
+
+docker-compose -f ovs.yaml -p ovs start    ## start it as a service 
+docker-compose -f ovs.yaml -p ovs stop     ## stop the service 
