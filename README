@@ -320,3 +320,18 @@ http://PublicIP:8083
 
 docker-compose -f ovs.yaml -p ovs start    ## start it as a service 
 docker-compose -f ovs.yaml -p ovs stop     ## stop the service 
+
+
+
+docker stop `docker ps -q`
+docker rm `docker ps -qa`
+docker system prune --all 
+docker volume prune 
+
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
+sudo dpkg -i minikube_latest_amd64.deb
+minikube version
+minikube start --driver=docker
+minikube kubectl -- get pods -A
+docker ps 
+docker ps -a
