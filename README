@@ -283,3 +283,9 @@ cat Dockerfile
 docker build -t wp-app .
 docker run -d --name wordpress -p 8080:80 wp-app 
 Open chrome http://PublicIP:8080/
+
+
+docker login jaibw.jfrog.io
+docker pull nginx 
+docker tag nginx jaibw.jfrog.io/devops-docker/nginx:YOURNAME
+docker push jaibw.jfrog.io/devops-docker/nginx:YOURNAME
