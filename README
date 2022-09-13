@@ -299,3 +299,21 @@ docker-compose -f wordpress.yaml up
 Access http://PublicIP:8081/
 Press Ctrl + c to exit from docker-compose up command 
 
+
+docker stop `docker ps -q`
+docker rm `docker ps -qa`
+docker system prune --all 
+docker volume prune 
+
+wget https://raw.githubusercontent.com/Jaibw/docker-v1/master/docker-compose/ovs.yaml
+cat ovs.yaml
+docker-compose -f ovs.yaml -p ovs up 
+
+
+Access App
+http://PublicIP:8082
+http://PublicIP:8082/swagger-ui.html 
+
+Acess DB Admin Utility: 
+Find DB details - https://raw.githubusercontent.com/Jaibw/docker-v1/master/docker-compose/ovs.yaml 
+http://PublicIP:8083
