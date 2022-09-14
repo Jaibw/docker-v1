@@ -576,3 +576,21 @@ master> kubectl scale --replicas=9 -f deployment.yaml
 master> kubectl get pods -o wide 
 master> kubectl scale --replicas=1 deployment website001 
 master> kubectl get pods -o wide
+
+
+master> kubectl replace -f deployment.yaml
+master> kubectl describe deployment website001
+master> cat deployment.yaml 
+master> sed -i 's/image: nginx/image: nginx:1.23/g' deployment.yaml 
+master> cat deployment.yaml 
+master> kubectl replace -f deployment.yaml 
+master> kubectl rollout status deployment website001
+master> kubectl get rs 
+master> kubectl rollout history deployment website001
+master> kubectl set image deployment website001 web=nginx:1.9.1
+master> kubectl rollout status deployment website001
+master> kubectl rollout history deployment website001
+master> kubectl rollout undo deployment website001
+master> kubectl rollout status deployment website001 
+master> kubectl rollout history deployment website001
+master> kubectl get rs
