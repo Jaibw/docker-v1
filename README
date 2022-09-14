@@ -605,3 +605,12 @@ master> kubectl apply -f https://raw.githubusercontent.com/Jaibw/docker-v1/maste
 master> kubectl get svc
 master> kubectl describe service website001-internal 
 master> curl http://10.##.##.##
+
+
+# Kubectl autocomplete - BASH
+source <(kubectl completion bash) 
+echo "source <(kubectl completion bash)" >> ~/.bashrc
+
+kubectl get pods --> press the table key 
+
+Ref: https://kubernetes.io/docs/reference/kubectl/cheatsheet/
