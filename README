@@ -538,8 +538,24 @@ master> cat replication-controller.yaml
 master> kubectl replace -f replication-controller.yaml 
 master> kubectl get rc
 master> kubectl get pods -o wide 
-master> kubectl scale replicas=9 -f replication-controller.yaml 
 master> kubectl scale --replicas=9 -f replication-controller.yaml 
 master> kubectl get pods -o wide 
 master> kubectl scale --replicas=1 replicationcontroller myapp-web
+master> kubectl get pods -o wide 
+
+master> wget https://raw.githubusercontent.com/Jaibw/docker-v1/master/k8s/replica-set.yaml
+master> kubectl create -f replica-set.yaml
+master> kubectl get replicaset 
+master> kubectl get rs
+master> kubectl get pods
+master> kubectl get pods -o wide 
+master> cat replica-set.yaml 
+master> sed -i 's/replicas: 3/replicas: 6/g' replica-set.yaml 
+master> cat replica-set.yaml 
+master> kubectl replace -f replica-set.yaml 
+master> kubectl get rs
+master> kubectl get pods -o wide 
+master> kubectl scale --replicas=9 -f replica-set.yaml 
+master> kubectl get pods -o wide 
+master> kubectl scale --replicas=1 replicaset frontend 
 master> kubectl get pods -o wide 
