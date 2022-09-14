@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web01
+spec:
+  containers:
+  - name: app
+    image: nginx
+    ports:
+    - containerPort: 80
+  - name: db
+    image: redis
