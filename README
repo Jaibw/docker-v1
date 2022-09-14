@@ -342,3 +342,12 @@ minikube dashboard
 minikube addons list
 minikube addons enable metrics-server 
 minikube addons list
+
+## Kubernetes Production Grade Setup - Multi-node cluster 
+
+sudo apt update
+sudo apt -y upgrade
+sudo systemctl reboot
+
+
+
