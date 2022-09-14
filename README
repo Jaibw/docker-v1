@@ -379,4 +379,35 @@ worker01> sudo apt -y install vim git curl wget kubelet=1.23.7-00 kubeadm=1.23.7
 worker01> sudo apt-mark hold kubelet kubeadm
 worker01> kubeadm version
 
+# Turn off swap 
+master> sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+master> sudo swapoff -a
 
+worker01> sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+worker01> sudo swapoff -a
+
+# Enable kernel modules
+master> sudo modprobe overlay
+master> sudo modprobe br_netfilter
+
+worker01> sudo modprobe overlay
+worker01> sudo modprobe br_netfilter
+
+
+# Add some settings to sysctl
+master> sudo tee /etc/sysctl.d/kubernetes.conf<<EOF
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+net.ipv4.ip_forward = 1
+EOF
+
+worker01> sudo tee /etc/sysctl.d/kubernetes.conf<<EOF
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+net.ipv4.ip_forward = 1
+EOF
+
+# Reload sysctl
+master> sudo sysctl --system
+
+worker01> sudo sysctl --system
