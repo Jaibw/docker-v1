@@ -360,6 +360,23 @@ worker01> sudo hostnamectl set-hostname worker01
 worker01> REFRESH MY SESSION
 
 
+# Install kubelet, kubeadm and kubectl
 
+master> sudo apt -y install curl apt-transport-https
+master> curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+master> echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+master> sudo apt update
+master> sudo apt -y install vim git curl wget kubelet=1.23.7-00 kubeadm=1.23.7-00 kubectl=1.23.7-00
+master> sudo apt-mark hold kubelet kubeadm kubectl
+master> kubectl version --client
+master> kubeadm version
+
+worker01> sudo apt -y install curl apt-transport-https
+worker01> curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+worker01> echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+worker01> sudo apt update
+worker01> sudo apt -y install vim git curl wget kubelet=1.23.7-00 kubeadm=1.23.7-00
+worker01> sudo apt-mark hold kubelet kubeadm
+worker01> kubeadm version
 
 
