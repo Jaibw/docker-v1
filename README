@@ -470,3 +470,17 @@ master> sudo kubeadm help init
 master> sudo kubeadm init --pod-network-cidr=10.100.0.0/16 --service-cidr=10.150.0.0/16 --upload-certs
 
 worker01> sudo kubeadm join 172.#.#.#:6443 --token ###### --discovery-token-ca-cert-hash sha256:#######
+
+
+master> sudo cat /etc/kubernetes/admin.conf 
+master> mkdir -p $HOME/.kube
+master> kubectl cluster-info
+master> sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+master> sudo chown $(id -u):$(id -g) $HOME/.kube/config
+master> kubectl cluster-info
+master> kubectl get nodes  
+master> kubectl get nodes -o wide 
+master> kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+master> watch kubectl get nodes
+# Press Ctrl + c when your both nodes are in ready state 
+master> kubectl get pods --all-namespaces
