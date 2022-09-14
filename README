@@ -345,9 +345,21 @@ minikube addons list
 
 ## Kubernetes Production Grade Setup - Multi-node cluster 
 
-sudo apt update
-sudo apt -y upgrade
-sudo systemctl reboot
+master> sudo apt update
+master> sudo apt -y upgrade
+master> sudo systemctl reboot
+
+worker01> sudo apt update
+worker01> sudo apt -y upgrade
+worker01> sudo systemctl reboot
+
+master> sudo hostnamectl set-hostname master
+master> REFRESH MY SESSION 
+
+worker01> sudo hostnamectl set-hostname worker01
+worker01> REFRESH MY SESSION
+
+
 
 
 
