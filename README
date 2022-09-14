@@ -484,3 +484,17 @@ master> kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubect
 master> watch kubectl get nodes
 # Press Ctrl + c when your both nodes are in ready state 
 master> kubectl get pods --all-namespaces
+
+## PODS
+master> kubectl get pods
+master> kubectl get ns
+master> kubectl run web --image=nginx
+master> kubectl get pods
+master> kubectl get pods -o wide 
+master> kubectl describe  pods web
+master> kubectl logs  web
+master> kubectl get pods -o wide 
+master> curl 10.#.#.#
+
+worker01> sudo docker ps | grep web 
+worker01> curl 10.#.#.#
