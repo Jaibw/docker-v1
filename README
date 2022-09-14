@@ -498,3 +498,16 @@ master> curl 10.#.#.#
 
 worker01> sudo docker ps | grep web 
 worker01> curl 10.#.#.#
+
+
+master> wget https://raw.githubusercontent.com/Jaibw/docker-v1/master/k8s/pod.yaml
+master> cat pod.yaml
+master> kubectl create -f pod.yaml 
+master> kubectl get pods -o wide
+master> curl 10.#.#.#
+master> kubectl describe pods web01
+master> kubectl logs web01
+master> kubectl get pods
+master> kubectl delete pod web
+master> kubectl delete -f pod.yaml 
+   70  kubectl get pods
