@@ -600,3 +600,8 @@ master> kubectl apply -f https://raw.githubusercontent.com/Jaibw/docker-v1/maste
 master> kubectl get svc
 master> kubectl describe service website001
 Open http://PublicIP:30303
+
+master> kubectl apply -f https://raw.githubusercontent.com/Jaibw/docker-v1/master/k8s/cluster-ip.yaml
+master> kubectl get svc
+master> kubectl describe service website001-internal 
+master> curl http://10.150.165.149
