@@ -522,3 +522,24 @@ master> kubectl describe pods web02
 master> kubectl logs web02 app
 master> kubectl logs web02 db
 worker01> sudo docker ps | grep web02 
+
+
+master> wget https://raw.githubusercontent.com/Jaibw/docker-v1/master/k8s/replication-controller.yaml
+master> kubectl create -f replication-controller.yaml 
+master> kubectl get replicationcontroller 
+master> kubectl get rc
+master> kubectl get pods
+master> kubectl get pods -o wide 
+master> kubectl delete pod myapp-web-#####
+master> kubectl get pods -o wide 
+master> cat replication-controller.yaml 
+master> sed -i 's/replicas: 3/replicas: 6/g' replication-controller.yaml 
+master> cat replication-controller.yaml 
+master> kubectl replace -f replication-controller.yaml 
+master> kubectl get rc
+master> kubectl get pods -o wide 
+master> kubectl scale replicas=9 -f replication-controller.yaml 
+master> kubectl scale --replicas=9 -f replication-controller.yaml 
+master> kubectl get pods -o wide 
+master> kubectl scale --replicas=1 replicationcontroller myapp-web
+master> kubectl get pods -o wide 
