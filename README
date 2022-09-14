@@ -513,3 +513,12 @@ master> kubectl delete -f pod.yaml
 master> kubectl get pods
 
 worker01> sudo docker ps | grep web01 
+
+
+master> kubectl create -f https://raw.githubusercontent.com/Jaibw/docker-v1/master/k8s/pod-multi.yaml 
+master> kubectl get pods -o wide
+master> curl 10.#.#.#
+master> kubectl describe pods web02
+master> kubectl logs web02 app
+master> kubectl logs web02 db
+worker01> sudo docker ps | grep web02 
