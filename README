@@ -411,3 +411,52 @@ EOF
 master> sudo sysctl --system
 
 worker01> sudo sysctl --system
+
+
+# Install and configure docker and other services 
+master> sudo apt install -y gnupg2 software-properties-common apt-transport-https ca-certificates
+master> curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+master> sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+master> sudo apt update
+master> sudo apt install -y containerd.io docker-ce docker-ce-cli
+master> sudo mkdir -p /etc/systemd/system/docker.service.d
+master> sudo tee /etc/docker/daemon.json <<EOF
+{
+  "exec-opts": ["native.cgroupdriver=systemd"],
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "100m"
+  },
+  "storage-driver": "overlay2"
+}
+EOF
+
+# Start and enable Services
+master> sudo systemctl daemon-reload 
+master> sudo systemctl restart docker
+master> sudo systemctl enable docker
+master> sudo systemctl enable kubelet
+
+
+worker01> sudo apt install -y gnupg2 software-properties-common apt-transport-https ca-certificates
+worker01> curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+worker01> sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+worker01> sudo apt update
+worker01> sudo apt install -y containerd.io docker-ce docker-ce-cli
+worker01> sudo mkdir -p /etc/systemd/system/docker.service.d
+worker01> sudo tee /etc/docker/daemon.json <<EOF
+{
+  "exec-opts": ["native.cgroupdriver=systemd"],
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "100m"
+  },
+  "storage-driver": "overlay2"
+}
+EOF
+
+# Start and enable Services
+worker01> sudo systemctl daemon-reload 
+worker01> sudo systemctl restart docker
+worker01> sudo systemctl enable docker
+worker01> sudo systemctl enable kubelet
