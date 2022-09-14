@@ -559,3 +559,20 @@ master> kubectl scale --replicas=9 -f replica-set.yaml
 master> kubectl get pods -o wide 
 master> kubectl scale --replicas=1 replicaset frontend 
 master> kubectl get pods -o wide 
+
+
+master> wget https://raw.githubusercontent.com/Jaibw/docker-v1/master/k8s/deployment.yaml
+master> kubectl create -f deployment.yaml
+master> kubectl get deployment
+master> kubectl get rs
+master> kubectl get pods 
+master> cat deployment.yaml 
+master> sed -i 's/replicas: 3/replicas: 6/g' deployment.yaml 
+master> cat deployment.yaml 
+master> kubectl replace -f deployment.yaml 
+master> kubectl get deployment
+master> kubectl get pods -o wide 
+master> kubectl scale --replicas=9 -f deployment.yaml 
+master> kubectl get pods -o wide 
+master> kubectl scale --replicas=1 deployment website001 
+master> kubectl get pods -o wide
