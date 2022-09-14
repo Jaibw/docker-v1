@@ -594,3 +594,9 @@ master> kubectl rollout undo deployment website001
 master> kubectl rollout status deployment website001 
 master> kubectl rollout history deployment website001
 master> kubectl get rs
+
+
+master> kubectl apply -f https://raw.githubusercontent.com/Jaibw/docker-v1/master/k8s/node-port.yaml
+master> kubectl get svc
+master> kubectl describe service website001
+Open http://PublicIP:30303
