@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: nginx
+        image: adminer
         ports:
         - containerPort: 8080
 ---
