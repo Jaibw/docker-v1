@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: ovs-config
 data:
-  DBHOST: postgres
-  DBPORT: '5432'
-  DATABASE: postgres
-  DBUSER: postgres
+  DBHOST: "postgres"
+  DBPORT: "5432"
+  DATABASE: "postgres"
+  DBUSER: "postgres"
