@@ -659,7 +659,6 @@ kubectl get configmap ovs-config -o yaml -n NAME
 # Postgres Password: echo -n 'password' | base64
 kubectl create -f https://raw.githubusercontent.com/Jaibw/docker-v1/master/k8s/ovs/db-config.yaml -n NAME
 kubectl get secret -n NAME
-kubectl get describe postgres-config -n NAME
 kubectl describe secret postgres-config -n NAME
 kubectl get secret postgres-config -o yaml -n NAME
 
