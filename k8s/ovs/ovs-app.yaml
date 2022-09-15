@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ovs
+  labels:
+    app: ovs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ovs
+  template:
+    metadata:
+      labels:
+        app: ovs
+    spec:
+      containers:
+      - name: web
+        image: jaibw/api
+        ports:
+        - containerPort: 8081
+        env:
+        - name: DBHOST
+          valueFrom:
+            configMapKeyRef:
+              name: ovs-config
+              key: DBHOST
+        - name: DBPORT
+          valueFrom:
+            configMapKeyRef:
+              name: ovs-config
+              key: DBPORT        
+        - name: DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: ovs-config
+              key: DATABASE        
+        - name: DBUSER
+          valueFrom:
+            configMapKeyRef:
+              name: ovs-config
+              key: DBUSER        
+        - name: DBPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-config
+              key: password
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ovs
+spec:
+  type: NodePort
+  selector:
+    app: ovs
+  ports:
+    - port: 8081
+      targetPort: 8081
