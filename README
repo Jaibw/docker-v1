@@ -648,3 +648,13 @@ kubectl get all -n NAME
 kubectl run demo --image=nginx -n NAME
 kubectl get all -n NAME
 kubectl get pods -A
+
+## OVS Deployment 
+# Creating configmap 
+kubectl create -f https://raw.githubusercontent.com/Jaibw/docker-v1/master/k8s/ovs/app-configmap.yaml -n NAME 
+kubectl get configmap -n NAME
+kubectl describe configmap ovs-config -n NAME
+kubectl get configmap ovs-config -o yaml -n NAME 
+
+
+
