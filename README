@@ -662,3 +662,7 @@ kubectl get secret -n NAME
 kubectl describe secret postgres-config -n NAME
 kubectl get secret postgres-config -o yaml -n NAME
 
+# Postgres deployment with clusterip 
+kubectl create -f https://raw.githubusercontent.com/Jaibw/docker-v1/master/k8s/ovs/postgres-db.yaml -n NAME
+kubectl get all -n NAME
+kubectl describe svc postgres -n NAME 
