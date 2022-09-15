@@ -684,6 +684,8 @@ curl node3:NODEPORT
 Open link http://54.215.208.140:NODEPORT/swagger-ui.html  
 
 # PV and PVC 
+mkdir ~/NAME
+cd ~/NAME
 wget https://raw.githubusercontent.com/Jaibw/docker-v1/master/k8s/ovs/postgres-storage.yaml
 sed -i 's/NAME/jai/g' postgres-storage.yaml ### replace jai with your name 
 cat postgres-storage.yaml
