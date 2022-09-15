@@ -636,3 +636,15 @@ master> sudo cp /etc/kubernetes/admin.conf .kube/config
 master> sudo chown ubuntu:ubuntu .kube/config 
 master> kubectl get nodes
 master> kubectl get pods -A
+
+## Create Namespace 
+kubectl get ns
+kubectl get namespace
+kubectl get pods -n default
+kubectl get pods
+kubectl get pods -n kube-system
+kubectl create namespace NAME
+kubectl get all -n NAME
+kubectl run demo --image=nginx -n NAME
+kubectl get all -n NAME
+kubectl get pods -A
