@@ -682,3 +682,18 @@ kubectl get pods -o wide -n NAME
 kubectl get svc ovs -n NAME
 curl node3:NODEPORT 
 Open link http://54.215.208.140:NODEPORT/swagger-ui.html  
+
+# PV and PVC 
+wget https://raw.githubusercontent.com/Jaibw/docker-v1/master/k8s/ovs/postgres-storage.yaml
+sed -i 's/NAME/jai/g' postgres-storage.yaml ### replace jai with your name 
+cat postgres-storage.yaml
+kubectl create -f postgres-storage.yaml
+kubectl get pv
+kubectl get pvc -n NAME
+wget https://raw.githubusercontent.com/Jaibw/docker-v1/master/k8s/ovs/postgres-db-storage.yaml
+sed -i 's/NAME/jai/g' postgres-db-storage.yaml  ### replace jai with your name
+cat postgres-db-storage.yaml
+kubectl replace -f postgres-db-storage.yaml -n NAME
+kubectl get pods -o wide -n NAME | grep postgres
+ssh  NODENAME "sudo ls /mnt/data/NAME"
+
