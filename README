@@ -699,3 +699,18 @@ kubectl replace -f postgres-db-storage.yaml -n NAME
 kubectl get pods -o wide -n NAME | grep postgres
 ssh  NODENAME "sudo ls /mnt/data/NAME"
 
+## Monitoring 
+wget https://github.com/prometheus-operator/kube-prometheus/archive/refs/tags/v0.10.0.tar.gz
+tar xvfz v0.10.0.tar.gz
+cd kube-prometheus-0.10.0/
+kubectl create -f manifests/setup
+kubectl create -f manifests/
+kubectl get pods -n monitoring -o wide | grep grafana
+curl  POD-IP-ADDRESS:3000
+kubectl --namespace monitoring patch svc grafana -p '{"spec": {"type": "NodePort"}}'
+kubectl get svc  --namespace monitoring | grep grafana
+curl CLUSTER-IP:3000
+curl node2:NODEPORT
+Open Grafana http://Public-IP-Node:NODEPORT 
+  User: admin  Password: admin 
+You can import kubernetes dashboard: https://grafana.com/grafana/dashboards/15757-kubernetes-views-global/   
