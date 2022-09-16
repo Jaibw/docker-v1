@@ -731,3 +731,23 @@ master> kubectl get pods -o wide
 master> kubectl cordon NODE-NAME
 master> kubectl delete node NODE-NAME
 master> kubectl get nodes
+
+## EKSCTL 
+sudo apt update
+sudo apt  install awscli
+aws confiure
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin
+sudo apt -y install curl apt-transport-https
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+sudo apt update
+sudo apt -y install vim git curl wget kubectl=1.20.15-00
+kubectl version --client
+eksctl version
+eksctl create cluster --name demo01 --region us-west-1
+mkdir ~/.kube
+aws eks update-kubeconfig --region us-west-1 --name demo01
+kubectl  get nodes
+
+
