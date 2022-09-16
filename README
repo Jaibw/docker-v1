@@ -775,3 +775,20 @@ controller> kubectl get all | grep NAME
 controller> kubectl get ingress | grep NAME
 Open link http://a1de81a94f6184a68a5b4c572b44dbeb-1f8388d56e3c7df0.elb.us-west-1.amazonaws.com/NAME
 
+
+## Apache Kafka using Docker Compose 
+
+wget https://raw.githubusercontent.com/Jaibw/docker-v1/master/docker-compose/apache-kafka.yaml
+
+mv apache-kafka.yaml docker-compose.yml 
+docker-compose up -d
+
+docker exec broker kafka-topics --bootstrap-server broker:9092 --create --topic quickstart
+
+docker exec --interactive --tty broker kafka-console-producer --bootstrap-server broker:9092 --topic quickstart
+# type the message and press Ctrl + D to exit
+
+docker exec --interactive --tty broker kafka-console-consumer --bootstrap-server broker:9092 --topic quickstart  --from-beginning  
+# wait for some time and press Ctrl + C to exit
+
+docker-compose down 
