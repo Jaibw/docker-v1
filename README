@@ -763,3 +763,15 @@ controller> kubectl describe pod web-NAME-####-####
 controller> kubectl describe svc web-NAME
 controller> kubectl get svc web-NAME
 Open link http://######.us-west-1.elb.amazonaws.com/
+
+## Ingress demo 
+controller> mkdir ~/NAME
+controller> cd ~/NAME
+controller> wget https://raw.githubusercontent.com/Jaibw/docker-v1/master/k8s/ingress-demo.yaml
+controller> sed -i 's/username/NAME/g' ingress-demo.yaml
+controller> cat ingress-demo.yaml
+controller> kubectl create -f ingress-demo.yaml
+controller> kubectl get all | grep NAME 
+controller> kubectl get ingress | grep NAME
+Open link http://a1de81a94f6184a68a5b4c572b44dbeb-1f8388d56e3c7df0.elb.us-west-1.amazonaws.com/NAME
+
