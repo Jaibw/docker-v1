@@ -723,4 +723,11 @@ wget https://raw.githubusercontent.com/Jaibw/docker/main/install_k8s_worker_ubun
 sh install_k8s_worker_ubuntu_20.04.sh
 sudo kubeadm join 172.31.26.230:6443 --token v3t4po.sb80f2rr6jb1tf9e --discovery-token-ca-cert-hash sha256:a223781a3ee9cf383f6c162f8b6c675203a498d93fe205da0a39d43fbd3ab34d
 
-
+## Remove node from cluster 
+master> kubectl get nodes
+master> kubectl drain NODE-NAME --delete-local-data --ignore-daemonsets
+master> kubectl get nodes
+master> kubectl get pods -o wide
+master> kubectl cordon NODE-NAME
+master> kubectl delete node NODE-NAME
+master> kubectl get nodes
