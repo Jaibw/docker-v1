@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-username
+  labels:
+    app: web-username
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-username
+  template:
+    metadata:
+      labels:
+        app: web-username
+    spec:
+      containers:
+      - name: web
+        image: jaibw/frozenyogurtshop
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-username
+spec:
+  type: LoadBalancer
+  selector:
+    app: web-username
+  ports:
+    - port: 80
+      targetPort: 80
+
