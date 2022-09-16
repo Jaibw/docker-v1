@@ -801,6 +801,16 @@ cd openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit/
 sudo mv  oc kubectl  /usr/local/bin/
 cd ~
 oc version
+
+docker stop `docker ps -q`
+docker rm `docker ps -qa`
+docker system prune --all 
+docker volume prune 
+sudo vim /etc/systemd/system/multi-user.target.wants/docker.service
+## Update … dockerd --insecure-registry=172.30.0.0/16 …
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
 oc --help
 oc cluster up
 oc login -u system:admin
