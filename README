@@ -714,3 +714,13 @@ curl node2:NODEPORT
 Open Grafana http://Public-IP-Node:NODEPORT 
   User: admin  Password: admin 
 You can import kubernetes dashboard: https://grafana.com/grafana/dashboards/15757-kubernetes-views-global/   
+
+
+## Add a node to the cluster 
+sudo hostnamectl set-hostname INSTANCE-NAME 
+# refresh your session 
+wget https://raw.githubusercontent.com/Jaibw/docker/main/install_k8s_worker_ubuntu_20.04.sh
+sh install_k8s_worker_ubuntu_20.04.sh
+sudo kubeadm join 172.31.26.230:6443 --token v3t4po.sb80f2rr6jb1tf9e --discovery-token-ca-cert-hash sha256:a223781a3ee9cf383f6c162f8b6c675203a498d93fe205da0a39d43fbd3ab34d
+
+
