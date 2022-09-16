@@ -750,4 +750,16 @@ mkdir ~/.kube
 aws eks update-kubeconfig --region us-west-1 --name demo01
 kubectl  get nodes
 
-
+## Loadbalancer demo 
+controller> mkdir ~/NAME
+controller> cd ~/NAME
+controller> wget https://raw.githubusercontent.com/Jaibw/docker-v1/master/k8s/loadbalancer-demo.yaml
+controller> sed -i 's/username/NAME/g' loadbalancer-demo.yaml
+controller> cat loadbalancer-demo.yaml
+controller> kubectl get all
+controller> kubectl create -f loadbalancer-demo.yaml
+controller> kubectl get all
+controller> kubectl describe pod web-NAME-####-####
+controller> kubectl describe svc web-NAME
+controller> kubectl get svc web-NAME
+Open link http://######.us-west-1.elb.amazonaws.com/
